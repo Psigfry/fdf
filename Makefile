@@ -6,7 +6,7 @@
 #    By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 14:11:13 by ccriston          #+#    #+#              #
-#    Updated: 2020/02/29 19:10:47 by ccriston         ###   ########.fr        #
+#    Updated: 2020/02/29 20:51:53 by ccriston         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(OBJECTS) : $(SRC) $(INC)
 		@$(FLAGS) -c $(SRC) -I include
 
 lib:
-	make -C include/libft
+	@make -C include/libft
 
 clean: 
 		@rm -rf $(OBJECTS)
