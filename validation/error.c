@@ -6,7 +6,7 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:56:46 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:08:53 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 19:26:11 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void			ft_error(int a, t_mlx *mlx, t_map *fdf)
 {
 	if (a == 2)
 	{
-		write(1, "Invalid map\n", 12);
+		write(2, "Invalid map\n", 12);
 		if (fdf)
 			ft_free(fdf);
 		if (mlx)
@@ -66,10 +66,10 @@ void			ft_error(int a, t_mlx *mlx, t_map *fdf)
 		}
 	}
 	if (a == 1)
-		write(1, "usage: ./fdf <filename>\n", 25);
+		write(2, "usage: ./fdf <filename>\n", 25);
 	if (a == 0)
 	{
-		write(1, "error\n", 6);
+		write(2, "error\n", 6);
 		if (fdf)
 			ft_free(fdf);
 		if (mlx)

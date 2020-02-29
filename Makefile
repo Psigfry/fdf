@@ -6,13 +6,15 @@
 #    By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 14:11:13 by ccriston          #+#    #+#              #
-#    Updated: 2020/02/29 14:11:14 by ccriston         ###   ########.fr        #
+#    Updated: 2020/02/29 19:10:47 by ccriston         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 FLAGS = gcc -Wall -Werror -Wextra
+
+INC = include/fdf.h include/libft/libft.h
 
 SRC = draw/draw_line.c draw/move.c draw/rotate.c draw/scale.c draw/tracer.c \
 	draw/centring.c \
@@ -25,14 +27,16 @@ OBJECTS = draw_line.o move.o rotate.o scale.o tracer.o centring.o \
 	create_data.o hooker.o mouse_hooks.o\
 	main.o
 
-all: $(NAME)
+all: lib $(NAME)
 
 $(NAME) : $(OBJECTS)
-		@make -C include/libft re
 		@$(FLAGS) $(OBJECTS) -I include -L include/libft -lft -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
-$(OBJECTS) : $(SRC)
+$(OBJECTS) : $(SRC) $(INC)
 		@$(FLAGS) -c $(SRC) -I include
+
+lib:
+	make -C include/libft
 
 clean: 
 		@rm -rf $(OBJECTS)

@@ -6,7 +6,7 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:15:06 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:19:56 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 18:50:17 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void		ft_name(char *av, t_map *fdf)
 			k = 0;
 	}
 	if (!(fdf->name = (char *)ft_memalloc(sizeof(char) * (k))))
-		return ;
+		ft_error(2, NULL, fdf);
 	i = i - k + 1;
 	l = 0;
 	while (av[i] != '\0')

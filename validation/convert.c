@@ -6,16 +6,36 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:55:56 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 15:51:55 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 20:28:54 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int					ft_close(void)
+static int			ft_isint(const char *str)
 {
-	exit(0);
-	return (0);
+	long long int	num;
+	int				sign;
+
+	num = 0;
+	while (('\t' <= *str && *str <= '\r') || *str == ' ')
+		++str;
+	sign = 1;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while ('0' <= *str && *str <= '9')
+	{
+		num = num * 10 + (*str - '0');
+		if ((sign == -1 && -num < -2147483648) ||
+		(sign == 1 && num > 2147483647))
+			return (0);
+		++str;
+	}
+	if (*str != '\0' && *str != ' ')
+		return (0);
+	return (1);
 }
 
 static unsigned int	ft_atoi16(const char *str)
@@ -81,22 +101,25 @@ static int			ft_checkcolor(char *str, int i, t_point *new)
 t_point				*ft_mkint(char *str, int n, int y)
 {
 	t_point		*new;
-	int			i;
-	int			k;
+	int			i[2];
 
-	new = (t_point *)malloc(sizeof(t_point) * (n + 1));
-	i = 0;
-	k = 0;
-	while (str[i] != '\0' && k <= n)
-		if (str[i] == ' ')
-			i++;
-		else if ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
+	if (!(new = (t_point *)malloc(sizeof(t_point) * (n + 1))))
+		exit(0);
+	i[0] = 0;
+	i[1] = 0;
+	while (str[i[0]] != '\0' && i[1] <= n)
+		if (str[i[0]] == ' ')
+			i[0]++;
+		else if ((str[i[0]] >= '0' && str[i[0]] <= '9') || ((str[i[0]] == '-' ||
+		str[i[0]] == '+') && (str[i[0] + 1] >= '0' && str[i[0] + 1] <= '9')))
 		{
-			ft_fillcoord(k, y, ft_atoi(str + i), &new[k]);
-			k++;
-			while ((str[i] >= '0' && str[i] <= '9') || str[i] == '-')
-				i++;
-			if ((i = ft_checkcolor(str, i, &new[k - 1])) == 0)
+			if (ft_isint(str + i[0]) == 0)
+				err_out(3);
+			ft_fillcoord(i[1], y, ft_atoi(str + i[0]), &new[i[1]]);
+			i[1]++;
+			while ((str[i[0]] >= '0' && str[i[0]] <= '9') || str[i[0]] == '-')
+				i[0]++;
+			if ((i[0] = ft_checkcolor(str, i[0], &new[i[1] - 1])) == 0)
 				return (0);
 		}
 		else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scale.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 13:38:20 by psigfry           #+#    #+#             */
-/*   Updated: 2020/02/29 13:38:22 by psigfry          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:29:45 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,24 @@ void			ft_pluscale(t_map *fdf)
 	int y;
 
 	y = 0;
-	move_mid(fdf);
-	while (y < fdf->h)
+	if (fdf->scale < 100)
 	{
-		x = 0;
-		while (x < fdf->w)
+		fdf->scale *= 2;
+		move_mid(fdf);
+		while (y < fdf->h)
 		{
-			fdf->points[y][x].x *= fdf->scale;
-			fdf->points[y][x].y *= fdf->scale;
-			fdf->points[y][x].z *= fdf->scale;
-			x++;
+			x = 0;
+			while (x < fdf->w)
+			{
+				fdf->points[y][x].x *= 2;
+				fdf->points[y][x].y *= 2;
+				fdf->points[y][x].z *= 2;
+				x++;
+			}
+			y++;
 		}
-		y++;
+		move_back(fdf);
 	}
-	move_back(fdf);
 }
 
 void			ft_minscale(t_map *fdf)
@@ -40,18 +44,22 @@ void			ft_minscale(t_map *fdf)
 	int y;
 
 	y = 0;
-	move_mid(fdf);
-	while (y < fdf->h)
+	if (fdf->scale > 2)
 	{
-		x = 0;
-		while (x < fdf->w)
+		fdf->scale /= 2;
+		move_mid(fdf);
+		while (y < fdf->h)
 		{
-			fdf->points[y][x].x /= fdf->scale;
-			fdf->points[y][x].y /= fdf->scale;
-			fdf->points[y][x].z /= fdf->scale;
-			++x;
+			x = 0;
+			while (x < fdf->w)
+			{
+				fdf->points[y][x].x /= 2;
+				fdf->points[y][x].y /= 2;
+				fdf->points[y][x].z /= 2;
+				++x;
+			}
+			y++;
 		}
-		y++;
+		move_back(fdf);
 	}
-	move_back(fdf);
 }

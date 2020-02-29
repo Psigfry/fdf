@@ -6,7 +6,7 @@
 #    By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 14:10:57 by ccriston          #+#    #+#              #
-#    Updated: 2020/02/29 14:11:00 by ccriston         ###   ########.fr        #
+#    Updated: 2020/02/29 18:13:33 by ccriston         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,9 +45,9 @@ INCLUDES=./
 all: $(NAME)
 
 $(NAME): $(SRCS) libft.h
-	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS) -g
-	@ar rc $(NAME) $(OBJECTS)
-	@ranlib $(NAME)
+	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
+	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJECTS)

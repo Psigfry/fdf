@@ -3,23 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 13:36:27 by psigfry           #+#    #+#             */
-/*   Updated: 2020/02/29 13:36:30 by psigfry          ###   ########.fr       */
+/*   Updated: 2020/02/29 20:29:08 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int		ft_close(void)
+{
+	exit(0);
+	return (0);
+}
+
 void	err_out(int e)
 {
 	if (e == 0)
-		write(1, "Error! Don't have memory\n", 25);
+		write(2, "Error! Don't have memory\n", 25);
 	if (e == 1)
-		write(1, "usage: ./fdf <filename>\n", 24);
+		write(1, "Usage: ./fdf <filename>\n", 24);
 	if (e == 2)
-		write(1, "Invalid map2\n", 12);
+		write(2, "Invalid map2\n", 12);
+	if (e == 3)
+		write(2, "Invalid data\n", 13);
 	exit(0);
 }
 
