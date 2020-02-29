@@ -6,7 +6,7 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:05:04 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:07:43 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 15:46:45 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ void			hooker(t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, 17, 0, ft_close, (void *)NULL);
 	mlx_hook(mlx->win_ptr, 2, 0, key_press, mlx);
 	mlx_hook(mlx->win_ptr, 4, 0, mouse_pres, mlx);
-	mlx_hook(mlx->win_ptr, 5, 0, mouse_releas, mlx);
+	mlx_hook(mlx->win_ptr, 5, 0, mouse_release, mlx);
 	mlx_hook(mlx->win_ptr, 6, 0, mouse_move, mlx);
 }

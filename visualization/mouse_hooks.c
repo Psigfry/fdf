@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hooks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 13:36:45 by psigfry           #+#    #+#             */
-/*   Updated: 2020/02/29 13:36:47 by psigfry          ###   ########.fr       */
+/*   Updated: 2020/02/29 15:41:08 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			mouse_pres(int btn, int x, int y, t_mlx *img)
 	return (0);
 }
 
-int			mouse_releas(int btn, int x, int y, t_mlx *img)
+int			mouse_release(int btn, int x, int y, t_mlx *img)
 {
 	x = y;
 	if (btn == 1)

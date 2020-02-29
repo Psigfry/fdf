@@ -6,7 +6,7 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:05:26 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:21:50 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 15:51:27 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_point				*ft_mkint(char *str, int n, int y);
 void				ft_valid(char *av, t_map *map);
 void				ft_error(int a, t_mlx *mlx, t_map *fdf);
 void				ft_free(t_map *fdf);
-int					ft_close(t_mlx *mlx);
+int					ft_close(void);
 
 /*
 **Module 2 draw
@@ -93,7 +93,7 @@ void				move_img(t_map *fdf, int x, int y);
 
 void				re_draw(t_mlx *img);
 void				destroy(t_mlx *img);
-int					mouse_releas(int btn, int x, int y, t_mlx *img);
+int					mouse_release(int btn, int x, int y, t_mlx *img);
 int					mouse_pres(int btn, int x, int y, t_mlx *img);
 int					mouse_move(int x, int y, t_mlx *img);
 int					check_md(t_map *fdf, int x, int y);

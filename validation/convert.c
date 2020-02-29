@@ -6,17 +6,14 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 10:55:56 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:08:56 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 15:51:55 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int					ft_close(t_mlx *mlx)
+int					ft_close(void)
 {
-	if (mlx->map)
-		ft_free(mlx->map);
-	ft_memdel((void **)&(mlx));
 	exit(0);
 	return (0);
 }
