@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/13 15:46:48 by jschille          #+#    #+#             */
-/*   Updated: 2019/07/04 13:54:16 by ccriston         ###   ########.fr       */
+/*   Created: 2020/02/29 14:05:04 by ccriston          #+#    #+#             */
+/*   Updated: 2020/02/29 14:07:43 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ static void		ft_keyrotate(int keycode, t_mlx *img)
 {
 	destroy(img);
 	if (keycode == 0)
-		rotate_y(img->map, -0.03, img->map->points);
+		rotate_y(img->map, -0.03);
 	if (keycode == 2)
-		rotate_y(img->map, 0.03, img->map->points);
+		rotate_y(img->map, 0.03);
 	if (keycode == 13)
-		rotate_x(img->map, -0.03, img->map->points);
+		rotate_x(img->map, -0.03);
 	if (keycode == 1)
-		rotate_x(img->map, 0.03, img->map->points);
+		rotate_x(img->map, 0.03);
 	if (keycode == 12)
-		rotate_z(img->map, -0.03, img->map->points);
+		rotate_z(img->map, -0.03);
 	if (keycode == 14)
-		rotate_z(img->map, 0.03, img->map->points);
+		rotate_z(img->map, 0.03);
 	re_draw(img);
 }
 

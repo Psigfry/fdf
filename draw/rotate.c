@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 13:38:08 by psigfry           #+#    #+#             */
-/*   Updated: 2020/02/29 13:38:09 by psigfry          ###   ########.fr       */
+/*   Updated: 2020/02/29 14:06:55 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void			rotate_x(t_map *map, double angle, t_point **points)
+void			rotate_x(t_map *map, double angle)
 {
 	int		i;
 	int		j;
@@ -35,7 +35,7 @@ void			rotate_x(t_map *map, double angle, t_point **points)
 	move_back(map);
 }
 
-void			rotate_y(t_map *map, double angle, t_point **points)
+void			rotate_y(t_map *map, double angle)
 {
 	int		i;
 	int		j;
@@ -58,7 +58,7 @@ void			rotate_y(t_map *map, double angle, t_point **points)
 	move_back(map);
 }
 
-void			rotate_z(t_map *map, double angle, t_point **points)
+void			rotate_z(t_map *map, double angle)
 {
 	int		i;
 	int		j;

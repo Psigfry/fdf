@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 13:43:39 by jschille          #+#    #+#             */
-/*   Updated: 2019/07/04 13:57:12 by ccriston         ###   ########.fr       */
+/*   Created: 2020/02/29 14:05:26 by ccriston          #+#    #+#             */
+/*   Updated: 2020/02/29 14:07:11 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int					ft_close(t_mlx *mlx);
 
 void				trace_point(t_map *map, t_mlx *mlx);
 void				draw_line(unsigned int *data, t_point a, t_point b);
-void				rotate_x(t_map *map, double angle, t_point **points);
-void				rotate_y(t_map *map, double angle, t_point **points);
-void				rotate_z(t_map *map, double angle, t_point **points);
+void				rotate_x(t_map *map, double angle);
+void				rotate_y(t_map *map, double angle);
+void				rotate_z(t_map *map, double angle);
 void				ft_up(t_map *map);
 void				ft_down(t_map *map);
 void				ft_left(t_map *map);

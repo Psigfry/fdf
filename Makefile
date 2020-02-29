@@ -1,6 +1,6 @@
 NAME = fdf
 
-FLAGS = gcc -Wall -Werror
+FLAGS = gcc -Wall -Werror -Wextra
 
 SRC = draw/draw_line.c draw/move.c draw/rotate.c draw/scale.c draw/tracer.c \
 	draw/centring.c \
