@@ -6,14 +6,11 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:15:06 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:15:09 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/02/29 14:19:56 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
 
 static void		ft_name(char *av, t_map *fdf)
 {
