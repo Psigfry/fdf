@@ -6,7 +6,7 @@
 /*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 13:46:30 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 20:51:59 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/03/02 13:49:06 by ccriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ static	int		ft_check(const char *str, int sign, int i)
 		if (result == 922337203685477580 && str[i] > '7')
 		{
 			if (sign == 1)
-				return ((long)(-1));
+				return (-1);
 			if (sign == -1 && str[i] > '8')
-				return ((long)(0));
+				return (0);
 		}
 		if (result > 922337203685477580)
 		{
 			if (sign == 1)
-				return ((long)(-1));
+				return (-1);
 			if (sign == -1)
-				return ((long)(0));
+				return (0);
 		}
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	return ((int)result * sign);
 }
 
 int				ft_atoi(const char *str)
@@ -56,5 +56,5 @@ int				ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	return ((long)(ft_check(str, sign, i)));
+	return (ft_check(str, sign, i));
 }
