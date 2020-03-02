@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
+/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 14:05:26 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 18:50:47 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/03/02 15:13:35 by psigfry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ typedef struct		s_point
 	float			z;
 	unsigned int	clr;
 }					t_point;
+
+typedef struct		s_rgb
+{
+	int				r;
+	int				g;
+	int				b;
+}					t_rgb;
 
 typedef struct		s_map
 {
@@ -97,6 +104,11 @@ int					mouse_release(int btn, int x, int y, t_mlx *img);
 int					mouse_pres(int btn, int x, int y, t_mlx *img);
 int					mouse_move(int x, int y, t_mlx *img);
 int					check_md(t_map *fdf, int x, int y);
+
+double				get_coeff(int *cr);
+int					get_color(int color1, int color2, double f);
+t_rgb				get_rgb_color(int color);
+int					rgb_to_int(t_rgb rgb);
 
 /*
 **Module 3 visualization

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+         #
+#    By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/29 14:10:57 by ccriston          #+#    #+#              #
-#    Updated: 2020/02/29 18:13:33 by ccriston         ###   ########.fr        #
+#    Updated: 2020/03/02 15:22:03 by psigfry          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ all: $(NAME)
 
 $(NAME): $(SRCS) libft.h
 	@gcc -Wall -Wextra -Werror -I$(INCLUDES) -c $(SRCS)
-	ar rc $(NAME) $(OBJECTS)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJECTS)

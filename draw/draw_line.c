@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ccriston <ccriston@student.42.fr>          +#+  +:+       +#+        */
+/*   By: psigfry <psigfry@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:11:02 by ccriston          #+#    #+#             */
-/*   Updated: 2020/02/29 14:08:29 by ccriston         ###   ########.fr       */
+/*   Updated: 2020/03/02 15:09:59 by psigfry          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ static int	mabs(int n)
 
 static void	set_pixel(unsigned int *data, int *cr)
 {
-	if (cr[4] > cr[5])
-		cr[4] -= 0x505;
-	else if (cr[4] < cr[5])
-		cr[4] += 0x505;
+	int color;
+
+	color = get_color(cr[4], cr[5], get_coeff(cr));
 	if (cr[1] < HIGHT - 1 && cr[0] < WIDTH - 1)
-		data[cr[1] * WIDTH + cr[0]] = cr[4];
+		data[cr[1] * WIDTH + cr[0]] = color;
 }
 
 static void	init_delta(int *delta, t_point a, t_point b)
@@ -48,6 +47,8 @@ static void	init_coords(int *coords, t_point a, t_point b)
 	coords[3] = b.y;
 	coords[4] = a.clr;
 	coords[5] = b.clr;
+	coords[6] = a.x;
+	coords[7] = a.y;
 }
 
 /*
@@ -57,7 +58,7 @@ static void	init_coords(int *coords, t_point a, t_point b)
 void		draw_line(unsigned int *data, t_point a, t_point b)
 {
 	int				delta[6];
-	int				cr[6];
+	int				cr[8];
 
 	init_delta(delta, a, b);
 	init_coords(cr, a, b);
