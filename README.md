@@ -4,14 +4,17 @@ FdF - это средство просмотра 3D-карт. (Поддержи�
 
 ## Installation
 Clone the repository to a directory.</br>
+
 ```
 https://github.com/Psigfry/fdf.git
 ```
 </br>
 Run make to compile the library.</br>
+
 ```
 cd fdf && make && make clean
 ```
+
 </br>
 
 ## IMG
